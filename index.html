@@ -1,102 +1,132 @@
 <!doctype html>
-<html lang="pl">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Bibliografia</title>
-<meta name="description" content="Zestawienie źródeł wykorzystanych w pracy doktorskiej: jak jest uporządkowane i jak czytać wpisy.">
+<title>Bibliography</title>
+<meta name="description" content="Every source behind the doctoral thesis, organised in one place: what it contains and how to read an entry.">
 <meta name="theme-color" content="#F3F2FF">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%232B3BFF'/%3E%3Crect x='7' y='7' width='5' height='18' rx='1.5' fill='%23FFC93C'/%3E%3Crect x='14' y='7' width='5' height='18' rx='1.5' fill='%23FF5A47'/%3E%3Crect x='21' y='10' width='5' height='15' rx='1.5' fill='%2300C9A7'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Figtree:wght@400;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;600;800&display=swap">
 <style>
 :root{
   --paper:#F3F2FF;
   --ink:#14123A;
-  --ink-soft:#4A4775;
+  --ink-soft:#44406E;
   --blue:#2B3BFF;
   --coral:#FF5A47;
   --sun:#FFC93C;
   --mint:#00C9A7;
-  --line:rgba(20,18,58,.14);
-  --display:"Bricolage Grotesque","Trebuchet MS",system-ui,sans-serif;
-  --body:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --line:rgba(20,18,58,.16);
+  --font:"Atkinson Hyperlegible Next","Segoe UI",system-ui,-apple-system,Roboto,sans-serif;
   --ease:cubic-bezier(.16,1,.3,1);
+  --gutter:clamp(1.25rem,5vw,2.5rem);
 }
 *{box-sizing:border-box}
-html{scrollbar-color:var(--blue) var(--paper)}
+html{scrollbar-color:var(--blue) var(--paper);-webkit-text-size-adjust:100%}
 body{
   margin:0;background:var(--paper);color:var(--ink);
-  font:400 1.0625rem/1.65 var(--body);
-  -webkit-font-smoothing:antialiased;
+  font:400 1.125rem/1.65 var(--font);
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
 }
 ::selection{background:var(--sun);color:var(--ink)}
-:focus-visible{outline:3px solid var(--blue);outline-offset:3px;border-radius:4px}
-a{color:var(--blue);text-underline-offset:.2em;text-decoration-thickness:2px}
+:focus-visible{outline:3px solid var(--blue);outline-offset:3px;border-radius:6px}
+a{color:var(--blue);text-underline-offset:.2em;text-decoration-thickness:2px;transition:color .2s}
 a:hover{color:var(--coral)}
-
-.wrap{width:min(100% - 2rem,64rem);margin-inline:auto}
+.wrap{width:min(100%,68rem);margin-inline:auto;padding-inline:var(--gutter)}
 
 /* Hero */
-header{padding:clamp(3rem,10vw,7rem) 0 clamp(2.5rem,6vw,4rem)}
-.hero{display:grid;gap:2.5rem;align-items:end}
-@media(min-width:48rem){.hero{grid-template-columns:1.5fr 1fr}}
+header{padding:clamp(3rem,11vw,8rem) 0 clamp(2.5rem,7vw,5rem)}
+.hero{display:grid;gap:clamp(2rem,6vw,3rem);align-items:end}
+@media(min-width:52rem){.hero{grid-template-columns:1.4fr 1fr;gap:4rem}}
 h1{
-  font:800 clamp(3.2rem,12vw,6rem)/.92 var(--display);
-  letter-spacing:-.03em;margin:0;text-wrap:balance;
+  font:800 clamp(2.75rem,11vw,5.75rem)/.98 var(--font);
+  letter-spacing:-.03em;margin:0;text-wrap:balance;overflow-wrap:break-word;
 }
 h1 span{color:var(--blue)}
-.lead{font-size:1.25rem;line-height:1.55;max-width:34ch;margin:1.5rem 0 0;color:var(--ink-soft)}
+.lead{font-size:clamp(1.1875rem,3.2vw,1.375rem);line-height:1.5;max-width:30ch;margin:1.5rem 0 0;color:var(--ink-soft)}
 
-/* Stos książek */
-.stack{display:flex;gap:.6rem;align-items:flex-end;height:11rem;justify-content:flex-end}
+/* Stack of books */
+.stack{display:flex;gap:clamp(.4rem,1.6vw,.75rem);align-items:flex-end;height:clamp(7.5rem,28vw,13rem);justify-content:flex-start}
+@media(min-width:52rem){.stack{justify-content:flex-end}}
 .stack i{
-  display:block;width:20%;max-width:4.5rem;border-radius:.6rem .6rem .25rem .25rem;
+  display:block;flex:0 1 4.5rem;min-width:0;border-radius:.6rem .6rem .25rem .25rem;
   transform-origin:bottom;animation:rise .9s var(--ease) both;
+  transition:transform .35s var(--ease);
 }
+.stack i:hover{transform:translateY(-.5rem)}
 .stack i:nth-child(1){height:70%;background:var(--sun)}
 .stack i:nth-child(2){height:100%;background:var(--coral);animation-delay:.08s}
 .stack i:nth-child(3){height:82%;background:var(--blue);animation-delay:.16s}
 .stack i:nth-child(4){height:58%;background:var(--mint);animation-delay:.24s}
 @keyframes rise{from{transform:scaleY(.15);opacity:0}to{transform:none;opacity:1}}
 
-/* Sekcje */
-section{padding:clamp(2.5rem,6vw,4rem) 0;border-top:2px solid var(--ink)}
-h2{font:800 clamp(1.75rem,5vw,2.5rem)/1.05 var(--display);letter-spacing:-.02em;margin:0 0 1.5rem;text-wrap:balance}
-.cols{display:grid;gap:2rem}
-@media(min-width:48rem){.cols{grid-template-columns:1fr 1.6fr;gap:4rem}}
+/* Intro fade for the headline block */
+.hero>div:first-child>*{animation:up .8s var(--ease) both}
+.hero>div:first-child>.lead{animation-delay:.12s}
+@keyframes up{from{transform:translateY(1rem);opacity:0}to{transform:none;opacity:1}}
+
+/* Sections */
+section{padding:clamp(2.5rem,7vw,4.5rem) 0;border-top:2px solid var(--ink)}
+h2{font:800 clamp(1.875rem,5vw,2.75rem)/1.08 var(--font);letter-spacing:-.02em;margin:0 0 1.5rem;text-wrap:balance}
+.cols{display:grid;gap:1.5rem}
+@media(min-width:52rem){
+  .cols{grid-template-columns:1fr 1.7fr;gap:4rem}
+  .cols>h2{position:sticky;top:2rem;align-self:start;margin:0}
+}
 p{margin:0 0 1em;max-width:62ch}
 
-/* Rodzaje źródeł */
+/* Scroll reveal: content stays visible unless JS opts in */
+.js .reveal{opacity:0;transform:translateY(1.25rem);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.js .reveal.in{opacity:1;transform:none}
+
+/* Source types */
 .types{list-style:none;margin:0;padding:0}
-.types li{display:grid;grid-template-columns:auto 1fr;gap:0 1rem;padding:1.1rem 0;border-bottom:1px solid var(--line)}
+.types li{display:grid;grid-template-columns:auto 1fr;gap:0 1rem;padding:1.25rem 0;border-bottom:1px solid var(--line)}
 .types li:first-child{padding-top:0}
-.types b{font:800 1.5rem/1.25 var(--display);display:block}
+.types li:last-child{border-bottom:0;padding-bottom:0}
+.types b{font:800 clamp(1.5rem,3.5vw,1.75rem)/1.2 var(--font);display:block;margin-bottom:.15rem}
 .types span{color:var(--ink-soft)}
-.dot{width:1.1rem;height:1.1rem;border-radius:50%;margin-top:.45rem}
+.dot{width:1.125rem;height:1.125rem;border-radius:50%;margin-top:.3rem;transition:transform .35s var(--ease)}
+.types li:hover .dot{transform:scale(1.35)}
 .d1{background:var(--coral)}.d2{background:var(--blue)}.d3{background:var(--sun)}.d4{background:var(--mint)}
 
-/* Przykładowy wpis */
+/* Example entry */
 .entry{
   background:var(--ink);color:var(--paper);border-radius:1.25rem;
-  padding:clamp(1.25rem,4vw,2rem);margin:0 0 1.25rem;
+  padding:clamp(1.5rem,4.5vw,2.25rem);margin:0 0 1.25rem;
   box-shadow:0 18px 40px -18px rgba(20,18,58,.5);
 }
-.entry p{margin:0;max-width:none;font-size:1.125rem;line-height:1.7}
+.entry p{margin:0;max-width:none;font-size:clamp(1.1875rem,3.4vw,1.4375rem);line-height:1.6;overflow-wrap:anywhere}
+.entry [data-k]{transition:opacity .25s,color .25s}
 .entry .a{color:var(--sun);font-weight:600}
 .entry .y{color:var(--mint);font-weight:600}
-.entry em{color:#FFB3A9;font-style:italic}
-.legend{display:flex;flex-wrap:wrap;gap:.5rem 1.25rem;font-size:.9375rem;color:var(--ink-soft)}
-.legend span::before{content:"";display:inline-block;width:.7rem;height:.7rem;border-radius:50%;margin-right:.45rem;background:var(--c)}
+.entry .t{color:#FFB3A9;font-style:italic}
+.entry[data-on] [data-k]{opacity:.3}
+.entry[data-on="a"] .a,.entry[data-on="y"] .y,.entry[data-on="t"] .t,.entry[data-on="p"] .p{opacity:1}
+.legend{display:flex;flex-wrap:wrap;gap:.5rem}
+.legend button{
+  font:600 1rem/1 var(--font);color:var(--ink);background:#fff;
+  border:2px solid var(--line);border-radius:999px;padding:.7rem 1.1rem;min-height:2.75rem;
+  display:inline-flex;align-items:center;gap:.5rem;cursor:pointer;
+  transition:border-color .2s,transform .3s var(--ease);
+}
+.legend button::before{content:"";width:.75rem;height:.75rem;border-radius:50%;background:var(--c);box-shadow:inset 0 0 0 1px rgba(20,18,58,.25)}
+.legend button:hover,.legend button:focus-visible{border-color:var(--ink);transform:translateY(-2px)}
+.hint{color:var(--ink-soft);margin-top:1.5rem}
 
 footer{background:var(--blue);color:var(--paper);padding:2.5rem 0 3rem}
 footer p{margin:0;max-width:none;display:flex;flex-wrap:wrap;gap:.5rem 2rem;justify-content:space-between;align-items:center}
-footer strong{font:800 1.5rem/1 var(--display)}
-footer a{color:var(--sun)}
-footer a:hover{color:#fff}
+footer strong{font:800 1.5rem/1.2 var(--font)}
+footer span{color:#DAD9FF}
 
-@media(prefers-reduced-motion:reduce){.stack i{animation:none}}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition-duration:.01ms!important}
+  .js .reveal{opacity:1;transform:none}
+}
+@media print{.stack{display:none}body{background:#fff}}
 </style>
 </head>
 <body>
@@ -104,8 +134,8 @@ footer a:hover{color:#fff}
 <header>
   <div class="wrap hero">
     <div>
-      <h1>Biblio&shy;grafia <span>pracy</span></h1>
-      <p class="lead">Wszystkie źródła, na których opiera się rozprawa, w jednym uporządkowanym miejscu.</p>
+      <h1>Thesis <span>bibliography</span></h1>
+      <p class="lead">Every source behind the research, gathered in one organised place.</p>
     </div>
     <div class="stack" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
   </div>
@@ -114,31 +144,31 @@ footer a:hover{color:#fff}
 <main>
   <section>
     <div class="wrap cols">
-      <h2>Co znajdziesz w zestawieniu</h2>
-      <ul class="types">
-        <li><i class="dot d1"></i><div><b>Monografie</b><span>Książki i rozdziały, które budują teoretyczne podstawy pracy.</span></div></li>
-        <li><i class="dot d2"></i><div><b>Artykuły naukowe</b><span>Publikacje z czasopism i materiałów konferencyjnych.</span></div></li>
-        <li><i class="dot d3"></i><div><b>Dane i raporty</b><span>Zbiory danych, statystyki i opracowania instytucji.</span></div></li>
-        <li><i class="dot d4"></i><div><b>Źródła internetowe</b><span>Strony i dokumenty online, z datą ostatniego dostępu.</span></div></li>
+      <h2>What you will find</h2>
+      <ul class="types reveal">
+        <li><i class="dot d1"></i><div><b>Monographs</b><span>Books and chapters that build the theoretical foundation of the work.</span></div></li>
+        <li><i class="dot d2"></i><div><b>Journal articles</b><span>Peer-reviewed papers and conference proceedings.</span></div></li>
+        <li><i class="dot d3"></i><div><b>Data and reports</b><span>Datasets, statistics and studies from institutions.</span></div></li>
+        <li><i class="dot d4"></i><div><b>Online sources</b><span>Web pages and documents, each with its last access date.</span></div></li>
       </ul>
     </div>
   </section>
 
   <section>
     <div class="wrap cols">
-      <h2>Jak czytać wpis</h2>
-      <div>
-        <div class="entry">
-          <!-- Przykład do zastąpienia własnym wpisem -->
-          <p><span class="a">Kuhn, T. S.</span> <span class="y">(1962)</span>. <em>The Structure of Scientific Revolutions</em>. Chicago: University of Chicago Press.</p>
+      <h2>How to read an entry</h2>
+      <div class="reveal">
+        <div class="entry" id="entry">
+          <!-- Example entry: replace with your own -->
+          <p><span class="a" data-k="a">Kuhn, T. S.</span> <span class="y" data-k="y">(1962)</span>. <em class="t" data-k="t">The Structure of Scientific Revolutions</em>. <span class="p" data-k="p">Chicago: University of Chicago Press.</span></p>
         </div>
-        <div class="legend" aria-label="Legenda wpisu">
-          <span style="--c:var(--sun)">autor</span>
-          <span style="--c:var(--mint)">rok wydania</span>
-          <span style="--c:var(--coral)">tytuł</span>
-          <span style="--c:#fff">wydawca</span>
+        <div class="legend" role="group" aria-label="Highlight a part of the entry">
+          <button type="button" data-t="a" style="--c:var(--sun)">Author</button>
+          <button type="button" data-t="y" style="--c:var(--mint)">Year</button>
+          <button type="button" data-t="t" style="--c:var(--coral)">Title</button>
+          <button type="button" data-t="p" style="--c:#fff">Publisher</button>
         </div>
-        <p style="margin-top:1.5rem">Wpisy są ułożone alfabetycznie według nazwiska pierwszego autora. Prace tego samego autora porządkuje rok wydania, od najstarszej do najnowszej.</p>
+        <p class="hint">Entries are sorted alphabetically by the first author’s surname. Works by the same author follow in order of publication, oldest first.</p>
       </div>
     </div>
   </section>
@@ -146,9 +176,28 @@ footer a:hover{color:#fff}
 
 <footer>
   <div class="wrap">
-    <p><strong>Bibliografia pracy doktorskiej</strong> <span>Ostatnia aktualizacja: 2026</span></p>
+    <p><strong>Doctoral thesis bibliography</strong> <span>Last updated 2026</span></p>
   </div>
 </footer>
 
+<script>
+(function(){
+  var d=document.documentElement,entry=document.getElementById('entry');
+  // Highlight the matching part of the example entry
+  document.querySelectorAll('.legend button').forEach(function(b){
+    var on=function(){entry.dataset.on=b.dataset.t},off=function(){delete entry.dataset.on};
+    b.addEventListener('mouseenter',on);b.addEventListener('focus',on);
+    b.addEventListener('mouseleave',off);b.addEventListener('blur',off);
+    b.addEventListener('click',on);
+  });
+  // Reveal on scroll; content stays visible if this cannot run
+  if(!('IntersectionObserver' in window)||matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  d.classList.add('js');
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}});
+  },{rootMargin:'0px 0px -10% 0px'});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+})();
+</script>
 </body>
 </html>
